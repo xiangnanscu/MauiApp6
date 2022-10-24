@@ -8,14 +8,30 @@
 <button class="btn btn-primary" @onclick="ListPictures">列举</button>
 <button class="btn btn-primary" @onclick="TakePhoto">拍照</button>
 <button class="btn btn-primary" @onclick="IncrementCount">计数</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var filename in files)
+        {
+            <tr>
+                <td>@filename</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @code {
     private int currentCount = 0;
     private string filename = "";
-    public async void ListPictures()
+    private string[] files = {};
+    public void ListPictures()
     {
 #if ANDROID
-    var files = MauiApp6.Platforms.Android.ListPictruresHelper.files_help();
+    files = MauiApp6.Platforms.Android.ListPictruresHelper.files_help();
     foreach (var item in files)
     {
         Console.WriteLine(item);

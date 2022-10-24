@@ -3,7 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Environment = Android.OS.Environment;
 
-namespace MauiApp6;
+namespace MauiApp6.Platforms.Android;
 [Application]
 public static class ListPictruresHelper
 {
